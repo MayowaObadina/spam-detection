@@ -1,10 +1,10 @@
 export MAX_LENGTH=256
 export BATCH_SIZE=16
-export NUM_EPOCHS=10
+export NUM_EPOCHS=1
 export SAVE_STEPS=500000
 export BERT_MODEL=google-bert/bert-base-uncased
 
-for j in 1 2 3 4 5
+for j in 1
 do
   export SEED=$j
   export OUTPUT_FILE=test_result_$j
