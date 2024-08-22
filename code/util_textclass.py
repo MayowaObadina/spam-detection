@@ -27,7 +27,7 @@ def read_instances_from_file(data_dir, mode, delimiter="\t"):
     file_path = os.path.join(data_dir, "{}.csv".format(mode))
     instances = []
 
-    df = pd.read_csv(file_path, sep=',', nrows=1000)
+    df = pd.read_csv(file_path, sep=',')
     df = df.astype('U')
     df = df.dropna()
     N = df.shape[0]
