@@ -29,6 +29,7 @@ def read_instances_from_file(data_dir, mode, delimiter="\t"):
 
     df = pd.read_csv(file_path, sep=',', nrows=1000)
     df = df.astype('U')
+    df = df.dropna()
     N = df.shape[0]
 
     for i in range(N):
