@@ -362,7 +362,7 @@ def main():
         default=None,
         type=str,
         required=True,
-        help="The input data dir. Should contain the .tsv files (or other data files) for the task.",
+        help="The input data dir. Should contain the .csv files (or other data files) for the task.",
     )
     parser.add_argument(
         "--model_type",
@@ -638,7 +638,7 @@ def main():
 
         output_test_predictions_file = os.path.join(args.output_dir, args.output_prediction_file+".txt")
         with open(output_test_predictions_file, "w", encoding='utf-8') as writer:
-            df = pd.read_csv(os.path.join(args.data_dir, "test.tsv"), sep='\t')
+            df = pd.read_csv(os.path.join(args.data_dir, "test.csv"), sep='\t')
             N = df.shape[0]
 
             texts = list(df['headline'].values)
@@ -646,7 +646,7 @@ def main():
                 output_line = texts[i] + "\t" + id2label[str(predictions[i])] + "\n"
                 writer.write(output_line)
             '''
-            with open(os.path.join(args.data_dir, "test.tsv"), "r", encoding='utf-8') as f:
+            with open(os.path.join(args.data_dir, "test.csv"), "r", encoding='utf-8') as f:
                 line_data = f.read()
             line_data =  line_data.splitlines()
             for l, line in enumerate(line_data):
